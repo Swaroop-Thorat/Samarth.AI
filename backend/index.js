@@ -14,7 +14,12 @@ const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY
 
 app.use(express.json());
 app.use(express.static("public"));
-app.use(cors({ origin: "http://localhost:5173", methods: ["GET", "POST"], credentials: true }));
+const corsOptions = {
+  origin: 'https://samarthai-rho.vercel.app', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+};
+app.use(cors(corsOptions));
 
 
 
