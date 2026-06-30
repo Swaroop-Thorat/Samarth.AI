@@ -12,8 +12,6 @@ const app = express();
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
 
-app.use(express.json());
-app.use(express.static("public"));
 const corsOptions = {
   origin: 'https://samarthai-rho.vercel.app', 
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
@@ -21,6 +19,8 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
+app.use(express.json());
+app.use(express.static("public"));
 
 
 async function callGroq(prompt, model, maxTokens = 600) {
