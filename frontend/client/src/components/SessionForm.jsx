@@ -75,7 +75,7 @@ export default function SessionForm() {
         const data = new FormData()
         data.append('resume', resumeFile)
 
-        const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3000'}/summarize-resume`, {
+        const res = await fetch(`${import.meta.env.VITE_API_URL || 'https://samarth-ai.onrender.com'}/summarize-resume`, {
           method: 'POST',
           body: data,
         })
