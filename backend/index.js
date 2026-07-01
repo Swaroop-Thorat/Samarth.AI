@@ -157,7 +157,7 @@ app.post("/summarize-resume", upload.single("resume"), async (req, res) => {
 
   try {
     const result = await pdfParse(req.file.buffer);
-    console.log("📄 PDF parsed, text length:", result.text?.length);  // ADD THIS
+    console.log("📄 PDF parsed, text length:", result.text?.length);  
     const resumeText = result.text;
 
     const prompt = `
