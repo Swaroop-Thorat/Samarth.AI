@@ -9,7 +9,7 @@ export default function Footer() {
 
         <div className="flex gap-lg items-center">
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/swaroop-thorat-140358349"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -20,7 +20,7 @@ export default function Footer() {
             <span className="material-symbols-outlined">link</span>
           </a>
           <a
-            href="mailto:contact@samarth.ai"
+            href="mailto:sthorat6663@gmail.com"
             aria-label="Email"
             className="text-on-surface-variant hover:text-on-surface transition-colors duration-200
                        flex items-center justify-center w-10 h-10 rounded-full

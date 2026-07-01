@@ -124,7 +124,7 @@ export default function InterviewRoom() {
     const t = setInterval(() => {
       c -= 1
       setCountdown(c)
-      if (c <= 0) { clearInterval(t); navigate('/dashboard') }
+      if (c <= 0) { clearInterval(t); navigate('/dashboard', { replace: true }) }
     }, 1000)
   }, [navigate])
 
@@ -265,7 +265,7 @@ export default function InterviewRoom() {
       try {
         const { data: { user } } = await supabase.auth.getUser()
 
-        const today = new Date().toISOString().split('T')[0]
+        const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' })
         const { data: control } = await supabase
           .from('users_control')
           .select('sessions_today, last_session_date, sessions_per_day, max_questions')
@@ -502,7 +502,7 @@ export default function InterviewRoom() {
           <p className="font-body text-body-lg text-on-surface-variant mb-xl">
             Redirecting to dashboard in {countdown}…
           </p>
-          <button onClick={() => navigate('/dashboard')} className="btn-primary">
+          <button onClick={() => navigate('/dashboard', { replace: true })} className="btn-primary">
             Go Now
           </button>
         </div>

@@ -36,7 +36,7 @@ export default function SessionForm() {
 
         if (!control) return
 
-        const today = new Date().toISOString().split('T')[0]
+        const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' })
         const isNewDay = control.last_session_date !== today
         const sessionsUsed = isNewDay ? 0 : (control.sessions_today || 0)
 
