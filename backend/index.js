@@ -72,10 +72,10 @@ function extractJson(text) {
 }
 
 async function generateEval(prompt) {
-  try { return await callGroq(prompt, "llama-3.3-70b-versatile", 350); }
+  try { return await callGroq(prompt, "llama-3.3-70b-versatile", 1000); }
   catch (err) { console.error("Eval primary failed:", err.message); }
 
-  try { return await callGroq(prompt, "llama-3.1-8b-instant", 350); }
+  try { return await callGroq(prompt, "llama-3.1-8b-instant", 1000); }
   catch (err) { console.error("Eval fallback 1 failed:", err.message); }
 
   try { return await callGemini(prompt); }
@@ -83,13 +83,13 @@ async function generateEval(prompt) {
 }
 
 async function generateWithFallback(prompt) {
-  try { return await callGroq(prompt, "openai/gpt-oss-120b", 450); }
+  try { return await callGroq(prompt, "openai/gpt-oss-120b", 600); }
   catch (err) { console.error("Primary failed:", err.message); }
 
   try { return await callGemini(prompt); }
   catch (err) { console.error("Fallback 1 failed:", err.message); }
 
-  try { return await callGroq(prompt, "llama-3.3-70b-versatile", 450); }
+  try { return await callGroq(prompt, "llama-3.3-70b-versatile", 600); }
   catch (err) { console.error("Fallback 2 failed:", err.message); return null; }
 }
 
